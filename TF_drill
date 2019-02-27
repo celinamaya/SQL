@@ -1,0 +1,26 @@
+SELECT
+    trip_id,
+    duration
+FROM
+    trips
+WHERE 
+    duration>500;
+
+
+SELECT
+	*
+FROM
+	stations
+WHERE
+	station_id = 84;
+
+
+SELECT
+	mintemperaturef,
+	precipitationin
+FROM
+	weather
+WHERE
+	zip= 94301
+ORDER BY mintemperaturef;
+	
