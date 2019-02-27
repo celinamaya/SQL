@@ -1,0 +1,32 @@
+SELECT
+	date,
+	meantemperaturef,
+	zip
+FROM
+	weather
+ORDER BY meantemperaturef DESC;
+
+--the hottest day overall was 2015-09-11 in the zipcode 94063
+
+SELECT
+	start_station,
+	COUNT(*) as station_count
+FROM
+	trips
+GROUP BY 1;
+
+
+SELECT
+	duration
+FROM
+	trips
+ORDER BY duration;
+--the shortest trip was 60 units of time, which are unspecified
+
+
+SELECT 
+	end_station,
+	AVG(duration) as av_duration
+FROM
+	trips
+GROUP BY end_station; 
