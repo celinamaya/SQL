@@ -1,0 +1,25 @@
+--What's the most expensive listing? What else can you tell me about the listing?
+SELECT
+	*
+FROM
+	sfo_listings
+ORDER BY price
+LIMIT 1;
+
+--What neighborhoods seem to be the most popular?
+SELECT
+	neighbourhood,
+	COUNT(*) as neigh_count
+FROM 
+	sfo_listings
+GROUP BY neighbourhood
+ORDER BY neigh_count DESC;
+
+--What time of year is the cheapest time to go to San Francisco? What about the busiest?
+select EXTRACT(MONTH FROM sfo_calendar.calender_date) as MONTHS, 
+avg(sfo_listings.price) as TOTAL
+from sfo_calendar
+JOIN sfo_listings ON sfo_calendar.listing_id =sfo_listings.id
+WHERE sfo_calendar.available = 't'
+GROUP BY 1
+ORDER BY 2;
